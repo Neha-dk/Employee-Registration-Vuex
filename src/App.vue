@@ -1,28 +1,40 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <div class="header">
+    <div class="topnav">
+      <router-link :to="{name:'register-preview', params:{employeeList:emplist}}">REGISTER</router-link>
+      <router-link :to="{name:'table', params:{tdata:emplist}}">TABLE</router-link>
+    </div>
+    <router-view></router-view>
+  </div>  
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  name: "App",
+  data(){
+    return {emplist:[]}
   }
-}
+};
+
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
 }
 </style>
