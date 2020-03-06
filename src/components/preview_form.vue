@@ -18,7 +18,7 @@
         <div class="Fields">
           <label>Date of Birth</label>
         </div>
-        {{date_format()}}
+        {{$store.state.employeeObj.date}}
         <div class="GenderClass">
           <div class="Fields">
             <label>Gender</label>
@@ -60,8 +60,7 @@ export default {
     methods: {
     date_format()
     {
-        this.$store.state.employeeObj.date =  this.$store.state.employeeObj.date.split("-").reverse().join("-");
-        return this.$store.state.employeeObj.date;
+      this.$store.dispatch('changeDateFormat');
     }
 
   }

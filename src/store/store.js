@@ -37,6 +37,10 @@ export default new Vuex.Store({
     },
     updateEmployeeList(context) {
       context.employeeList.push({ ...context.employeeObj });
+    },
+    updateDate(context)
+    {
+      context.employeeObj.date = context.employeeObj.date.split("-").reverse().join("-");
     }
   },
 
@@ -48,12 +52,16 @@ export default new Vuex.Store({
       state.commit('updateEmployeeList')
       console.log(state.employeeObj);
     },
+    changeDateFormat(state)
+    {
+      state.commit('updateDate')
+    },
     // json data using axios
     getEmployeeList(context) {
       axios.get(PATH)
         .then(function (response) {
-          console.log(response);
-          context.state.employeeList = response.data;   
+          var allData =response.data 
+          context.state.employeeList.push(...allData); 
         })
         .catch(function (error) {
           // handle error
