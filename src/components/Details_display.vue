@@ -1,5 +1,6 @@
 <template>
   <div class="employee-table">
+    <button @click="updateTable">Updated Table</button>
     <table border=1>
       <tr>
         <th>Name</th>
@@ -32,6 +33,15 @@
 <script>
 export default {
   name: "employeeDetails",
+  methods:{
+    updateTable()
+    {
+      
+      this.$store.dispatch('getEmployeeList');
+    }
+
+
+  }
 };
 </script>
 

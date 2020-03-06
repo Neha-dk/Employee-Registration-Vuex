@@ -1,0 +1,55 @@
+[
+    {
+        "fn": "Haritha",
+        "ln": "Vasanthula",
+        "email": "vrharitha1998@gmail.com",
+        "pswd": "asdfgh",
+        "date": "12-05-1998",
+        "gender": "female",
+        "Hobbies": ["Story Writing", "Singing"],
+        "country": "India",
+        "state": "Andhra Pradesh",
+        "Address": "Vizag 530046"
+    },
+    {
+        "fn": "Damodar",
+        "ln": "Devarasetti",
+        "email": "damodarlucky23@gmail.com",
+        "pswd": "Samanta0",
+        "date": "23-06-1993",
+        "gender": "male",
+        "Hobbies": ["Dancing", "Singing"],
+        "country": "India",
+        "state": "Andhra Pradesh",
+        "Address": "Srikakulam 532443"
+    },
+    {
+        "fn": "Abc",
+        "ln": "Xyz",
+        "email": "abc@gmail.com",
+        "pswd": "asdfgh",
+        "date": "20-01-1999",
+        "gender": "male",
+        "Hobbies": [
+            "Singing",
+            "Dancing"
+        ],
+        "country": "India",
+        "state": "Andhra Pradesh",
+        "Address": "fintech Valley 530048"
+    },
+    {
+        "fn": "Neha",
+        "ln": "Gandhi",
+        "email": "Nduggirala@gmail.com",
+        "pswd": "cdlx2020",
+        "date": "20-04-1999",
+        "gender": "Female",
+        "Hobbies": [
+            "Games"
+        ],
+        "country": "India",
+        "state": "Tamilnadu",
+        "Address": "Chinna Waltair 530003"
+    }
+]
