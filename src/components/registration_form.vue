@@ -88,36 +88,6 @@
 
 export default {
   name: "registration",
-  // computed: mapState({
-  //   fn: state=>state.fn
-  // }),
-
-  // computed: {
-  //   fn: {
-  //     // getter
-  //     get: function() {
-  //       return this.$store.state.fn;
-  //     },
-  //     // setter
-  //     set: function(value) {
-  //       this.$store.commit("updateFn", value);
-  //     }
-  //   }
-  // },
-
-  // computed: {
-  //   ...mapState({
-  //     // arrow functions can make the code very succinct!
-  //     fn: {
-  //       get: function() {
-  //         return this.$store.state.fn;
-  //       },
-  //       set: function(value) {
-  //         this.$store.commit("updateMessage", value);
-  //       }
-  //     }
-  //   })
-  // },
   data() {
     return {
       warning: ""

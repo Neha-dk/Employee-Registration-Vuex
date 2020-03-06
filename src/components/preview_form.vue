@@ -57,13 +57,6 @@
 <script>
 export default {
     name:"preview",
-
-    computed:{
-      // full(){
-      //   // return this.$store.state.employeeObj.fn + " " +this.$store.state.employeeObj.ln;
-      //   // return $store.dispatch(getFullName);
-      // } 
-    },
     methods: {
     date_format()
     {

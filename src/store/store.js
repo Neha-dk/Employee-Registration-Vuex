@@ -47,7 +47,6 @@ export default new Vuex.Store({
       state.commit('updateEmployeeList')
       console.log(state.employeeObj);
     }
-        // Here we will create Larry
         // json data using axios
         // getEmployeeList() {
         //     axios.get('/user?ID=12345')
@@ -66,6 +65,3 @@ export default new Vuex.Store({
     }
 });
 
-
-// this.getFullName();
-// console.log(state.employeeObj.fullName);
