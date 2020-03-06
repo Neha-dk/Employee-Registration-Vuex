@@ -1,12 +1,11 @@
 import Vue from 'vue';
 import App from './App.vue'
 import VueRouter from 'vue-router';
-import Vuex from 'vuex';
 import registration_preview from "./components/registrationPreview";
 import employeeDetails from "./components/Details_display.vue";
-
+import store from './store/store'
 Vue.use(VueRouter);
-Vue.use(Vuex);
+
 
 const routes = [
   {
@@ -25,5 +24,6 @@ Vue.config.productionTip = false
 
 new Vue({
   render: h => h(App),
-  router
+  router,
+  store
 }).$mount('#app')

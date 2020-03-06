@@ -11,7 +11,7 @@
         <th>Hobbies</th>
         <th>Address</th>
       </tr>
-      <tr v-for="emp in this.tdata" :key="emp.fn">
+      <tr v-for="emp in $store.state.employeeList" :key="emp.fn">
         <td>{{emp.fn + " "+emp.ln}}</td>
         <td>{{emp.email}}</td>
         <td>{{emp.date}}</td>
@@ -32,9 +32,6 @@
 <script>
 export default {
   name: "employeeDetails",
-  props: {
-    tdata: Array
-  }
 };
 </script>
 

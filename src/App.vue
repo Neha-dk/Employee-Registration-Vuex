@@ -9,11 +9,16 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+// import store from '../store/store'
 export default {
   name: "App",
   data(){
     return {emplist:[]}
-  }
+  },
+  computed: mapState({
+    fn:state => state.fn
+  })
 };
 
 </script>

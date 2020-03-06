@@ -6,15 +6,15 @@
         <div class="Fields">
           <label>First Name</label>
         </div>
-        <input v-model="rdata.fn" />
+        <input v-model="$store.state.employeeObj.fn" />
         <div class="Fields">
           <label>Last Name</label>
         </div>
-        <input type="text" v-model="rdata.ln" />
+        <input type="text" v-model="$store.state.employeeObj.ln" />
         <div class="Fields">
           <label>Mail ID</label>
         </div>
-        <input @change="mailValidation" type="text" v-model="rdata.email" />
+        <input @change="mailValidation" type="text" v-model="$store.state.employeeObj.email" />
         <div class="mailcolor">
           <span>{{warning}}</span>
         </div>
@@ -23,57 +23,57 @@
           <label>Password</label>
         </div>
 
-        <input type="password" v-model="rdata.pswd" />
+        <input type="password" v-model="$store.state.employeeObj.pswd" />
 
         <div class="Fields">
           <label>Date of Birth</label>
         </div>
-        <input type="date" v-model="rdata.date" />
+        <input type="date" v-model="$store.state.employeeObj.date" />
         <div class="GenderClass">
           <div class="Fields">
             <label>Gender</label>
           </div>
 
           <div @click="gender_event(0)">
-            <input type="radio" v-model="rdata.gender" name="Gender" value="male" /> Male
+            <input type="radio" v-model="$store.state.employeeObj.gender" name="Gender" value="male" /> Male
           </div>
           <div @click="gender_event(1)">
-            <input type="radio" v-model="rdata.gender" name="Gender" value="female" />Female
+            <input type="radio" v-model="$store.state.employeeObj.gender" name="Gender" value="female" />Female
           </div>
         </div>
         <div class="Fields">
           <label>Country</label>
         </div>
         <div class="country-class">
-          <select @change="state_collection()" class="Country" v-model="rdata.country">
-            <option v-for="c in rdata.country_object" :key="c.id">{{ c.country }}</option>
+          <select @change="state_collection()" class="Country" v-model="$store.state.employeeObj.country">
+            <option v-for="c in $store.state.employeeObj.country_object" :key="c.id">{{ c.country }}</option>
           </select>
         </div>
         <div class="Fields">
           <label>State</label>
         </div>
         <div class="state-class">
-          <select class="State" v-model="rdata.state">
-            <option v-for="s in rdata.state_object" :key="s.id">{{ s }}</option>
+          <select class="State" v-model="$store.state.employeeObj.state">
+            <option v-for="s in $store.state.employeeObj.state_object" :key="s.id">{{ s }}</option>
           </select>
         </div>
         <div class="hobbies-class">
           <div class="Fields">
             <label>Hobbies</label>
           </div>
-          <input type="checkbox" v-model="rdata.Hobbies" id="sing" value="Singing" />
+          <input type="checkbox" v-model="$store.state.employeeObj.Hobbies" id="sing" value="Singing" />
           <label for="sing">Singing</label>
-          <input type="checkbox" v-model="rdata.Hobbies" id="dance" value="Dancing" />
+          <input type="checkbox" v-model="$store.state.employeeObj.Hobbies" id="dance" value="Dancing" />
           <label for="dance">Dancing</label>
-          <input type="checkbox" v-model="rdata.Hobbies" id="story" value="Story Writing" />
+          <input type="checkbox" v-model="$store.state.employeeObj.Hobbies" id="story" value="Story Writing" />
           <label for="story">Story Writing</label>
-          <input type="checkbox" v-model="rdata.Hobbies" id="games" value="Games" />
+          <input type="checkbox" v-model="$store.state.employeeObj.Hobbies" id="games" value="Games" />
           <label for="games">Games</label>
         </div>
         <div class="Fields">
           <label>Address</label>
         </div>
-        <textarea v-model="rdata.Address">Where is your House</textarea>
+        <textarea v-model="$store.state.employeeObj.Address">Where is your House</textarea>
 
         <div class="submission-class" align="right">
           <button class="cancel">Cancel</button>
@@ -85,11 +85,39 @@
 </template>
 
 <script>
+
 export default {
   name: "registration",
-  props: {
-    rdata: {}
-  },
+  // computed: mapState({
+  //   fn: state=>state.fn
+  // }),
+
+  // computed: {
+  //   fn: {
+  //     // getter
+  //     get: function() {
+  //       return this.$store.state.fn;
+  //     },
+  //     // setter
+  //     set: function(value) {
+  //       this.$store.commit("updateFn", value);
+  //     }
+  //   }
+  // },
+
+  // computed: {
+  //   ...mapState({
+  //     // arrow functions can make the code very succinct!
+  //     fn: {
+  //       get: function() {
+  //         return this.$store.state.fn;
+  //       },
+  //       set: function(value) {
+  //         this.$store.commit("updateMessage", value);
+  //       }
+  //     }
+  //   })
+  // },
   data() {
     return {
       warning: ""
@@ -98,24 +126,25 @@ export default {
   methods: {
     gender_event(index) {
       document.getElementsByName("Gender")[index].checked = true;
-      this.rdata.gender = document.getElementsByName("Gender")[index].value;
+      this.$store.state.employeeObj.gender = document.getElementsByName("Gender")[index].value;
     },
     mailValidation() {
-      var id = this.rdata.email;
+      var id = this.$store.state.employeeObj.email;
       this.warning = id.endsWith("@gmail.com") ? "" : "Invalid Email";
     },
     state_collection() {
-      var state = this.rdata.country_object.find(x => x.country == this.rdata.country);
-      this.rdata.state_object = state.states;
+      var state = this.$store.state.employeeObj.country_object.find(
+        x => x.country == this.$store.state.employeeObj.country
+      );
+      this.$store.state.employeeObj.state_object = state.states;
     }
   }
 };
 </script>
 
 <style scoped lang="scss">
-label
-{
-    font-weight: bold;
+label {
+  font-weight: bold;
 }
 
 .registration-container {

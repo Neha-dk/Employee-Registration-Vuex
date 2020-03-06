@@ -6,15 +6,15 @@
         <div class="Fields">
           <label>Full Name</label>
         </div>
-        {{fullname()}}
+        {{$store.state.employeeObj.fn}}
         <div class="Fields">
           <label>Mail ID</label>
         </div>
-        {{pdata.email}}
+        {{$store.state.employeeObj.email}}
         <div class="Fields">
           <label>Password</label>
         </div>
-        {{pdata.pswd}}
+        {{$store.state.employeeObj.pswd}}
         <div class="Fields">
           <label>Date of Birth</label>
         </div>
@@ -23,18 +23,18 @@
           <div class="Fields">
             <label>Gender</label>
           </div>
-          {{pdata.gender}}
+          {{$store.state.employeeObj.gender}}
         </div>
         <div class="Fields">
           <label>Country</label>
         </div>
-        {{ pdata.country}}
+        {{ $store.state.employeeObj.country}}
 
         <div class="Fields">
           <label>State</label>
         </div>
         <div class="state-class">
-          {{pdata.state}}
+          {{$store.state.employeeObj.state}}
         </div>
 
         <div class="hobbies-class">
@@ -42,12 +42,12 @@
             <label>Hobbies</label>
           </div>
           <ol>
-            <li v-for="hobby in pdata.Hobbies" :key="hobby">{{hobby}}</li>
+            <li v-for="hobby in $store.state.employeeObj.Hobbies" :key="hobby">{{hobby}}</li>
           </ol>
         </div>
         <div class="Fields">
           <label>Address</label>
-          {{pdata.Address}}
+          {{$store.state.employeeObj.Address}}
         </div>        
       </div>
     </form>
@@ -57,17 +57,18 @@
 <script>
 export default {
     name:"preview",
-    props:{
-        pdata:{}
+
+    computed:{
+      // full(){
+      //   // return this.$store.state.employeeObj.fn + " " +this.$store.state.employeeObj.ln;
+      //   // return $store.dispatch(getFullName);
+      // } 
     },
     methods: {
-    fullname() {
-      return this.pdata.fn + " " + this.pdata.ln;
-    },
     date_format()
     {
-        this.pdata.date =  this.pdata.date.split("-").reverse().join("-");
-        return this.pdata.date;
+        this.$store.state.employeeObj.date =  this.$store.state.employeeObj.date.split("-").reverse().join("-");
+        return this.$store.state.employeeObj.date;
     }
 
   }
